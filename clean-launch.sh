@@ -10,6 +10,9 @@ fi
 
 if [ ! -f "/etc/xrdp/rsakeys.ini" ]; then
   /usr/bin/xrdp-keygen xrdp auto 2048
+  pushd /etc/xrdp &>/dev/null
+  rm -f cert.pem key.pem
+  openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -subj "/C=XX/ST=XX/L=XX/O=XX/CN=$(hostname)" -keyout key.pem -out cert.pem
 fi
 
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
