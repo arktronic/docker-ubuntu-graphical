@@ -18,10 +18,17 @@ docker run -d -p 3389:3389 --init --shm-size=2g arktronic/ubuntu-graphical
 
 #### 1.0
 
-Original release, based on Ubuntu 18.04. **CAUTION: uses a hard-coded RDP certificate!**
+- Original release, based on Ubuntu 18.04
+- **CAUTION: uses a hard-coded RDP certificate!**
 
 #### 2.0
 
 - Based on Ubuntu 20.04
 - Includes support for audio over RDP (somewhat buggy; help is appreciated)
 - Generates new SSH host key and RDP certificate on first run
+
+#### 2.1
+
+- Reduce number of intermediate images
+- Fix manpages
+- Install `bash-completion` and `command-not-found`
